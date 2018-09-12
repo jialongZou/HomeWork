@@ -1,0 +1,71 @@
+创建表：
+	1、用户表
+		
+		create table User(
+		Id integer primary key autoincrement,--主键 自动增长
+		Uid varchar(30) not null unique，--账号
+		Pwd varchar(30) not null,--密码
+		Tel varchar(30) not null,--手机
+		e-mail varchar(40)not null--邮箱
+		);
+
+	2、商品信息表
+
+		create table commodity(
+		ID integer primary key,
+		p_location varchar(200)，--商品图片地址
+		g_name varchar(100),--商品信息
+		g_price REAL--单价
+		
+		)
+	
+	3、购物车表
+	
+		id integer,
+		uid integer,
+		p_location varchar(200)，--商品图片地址
+		g_info varchar(100),--商品信息
+		g_price REAL,--单价
+		count，--数量
+		tatal_price--总价
+
+	4、订单表
+
+		id integer,
+		p_location varchar(200)，--商品图片地址
+		g_info varchar(100),--商品信息
+		g_price REAL,--单价
+		count，--数量
+		tatal_price，--总价
+
+	5、地址信息表
+		
+		A_id integer primary key,
+		A_address varchar(100),
+		A_Phone varchar(40),
+		A_Name varchar(20).
+		U_id integer
+		
+				分析：订单表与购物车表	
+	C_Id，主键，独立
+	G_Id，外键，对立商品表
+	C_Count 数量
+	
+	U_Id，外键 对立用户表
+	C_State 默认是display，检查display或hidden 购物车商品状态
+
+(1,9,3,10)这个是第一条数据，是10号用户要买3件9号商品
+	订单表
+
+	Order
+
+	O_Id,主键 独立编号
+	C_Id 外键 购物项
+	A_Id.外键 地址
+	O_State	默认是display，检查display或hidden 商品状态
+	
+--因为Order表的C_Id是引用Car表的C_Id，所以Order表的数据不能删	
+
+		
+		
+		
